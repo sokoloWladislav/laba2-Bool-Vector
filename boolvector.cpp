@@ -115,9 +115,13 @@ BoolVector::BoolVector(BoolVector& other):      //конструктор пер�
 {
     n=other.n;
     array=new Data[n];
+    for(int i=0; i<n; ++i)
+        array[i]=other.array[i];
     array=other.array;
-    other.n=0;
+    for(int i=0; i<n; ++i)
+        other.array[i]=0;
     delete[] other.array;
+    other.n=0;
     other.array=0;
 }
 
